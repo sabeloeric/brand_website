@@ -1,0 +1,82 @@
+@import '../core/index.scss';
+
+.footer {
+    background-color: $primary-dark;
+    color: $tertiary-color;
+    padding: 0 10%;
+    padding-top: 71px;
+    padding-bottom: 50px;
+
+    .section-title__text {
+        color: $tertiary-color;
+    }
+
+    &__contact-details {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 34px;
+        margin-bottom: 107px;
+
+        @include media-lg {
+            flex-direction: column;
+        }
+    }
+
+    &__address {
+        color: $tertiary-color;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+
+        @include media-lg {
+            margin-top: 50px;
+        }
+    }
+
+    &__address-link {
+        text-decoration: underline;
+        color: $tertiary-color;
+        
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__links {
+        display: flex;
+        justify-content: space-between;
+
+        @include media-lg {
+            flex-direction: column;
+        }
+    }
+
+    &__link-block {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-right: 50px;
+
+        @include media-lg {
+            margin-right: 50px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__link {
+        color: $tertiary-color;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+}
