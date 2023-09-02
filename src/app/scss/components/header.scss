@@ -7,6 +7,7 @@
     padding: 8px 20px;
     justify-content: space-between;
     align-items: center;
+    padding: 0 10%;
 
     @include media-md {
         flex-direction: column;
