@@ -62,27 +62,6 @@
         }
     }
 
-    &__button {
-        background-color: $tertiary-color;
-        border: none;
-        border-radius: 50px;
-        color: $primary-color;
-        cursor: pointer;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 700;
-        line-height:  21px;
-        transition: background-color 0.3s ease-in-out;
-        border: 1px solid $tertiary-color;
-        padding: 8px 16px;
-
-        &:hover {
-            background-color: $primary-color;
-            color: $tertiary-color;
-            border: 1px solid $tertiary-color;
-        }
-    }
-
     &__toggle-button {
         display: none;
         background-color: transparent;

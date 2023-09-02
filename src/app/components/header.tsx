@@ -41,7 +41,7 @@ function Header() {
             Contact
           </a>
         </div>
-        <button className='header__button'>
+        <button className='button button--secondary'>
           Let&apos;s Talk
         </button>
       </div>
