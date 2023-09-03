@@ -3,12 +3,19 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import '../scss/components/header.scss';
+import { disableBodyScroll, enableBodyScroll } from '../helpers/body-scroll';
 
 function Header() {
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
 
   const toggleSideNav = () => {
     setIsSideNavOpen(!isSideNavOpen);
+
+    if (!isSideNavOpen) {
+      disableBodyScroll();
+    } else {
+      enableBodyScroll();
+    }
   };
 
   return (
