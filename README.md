@@ -37,4 +37,4 @@ Incase the fetch fails, the case studies will be loaded from a local file to ens
 
 This project has been deployed using Vercel and is available on this link:
 
-- [website link](brand-website-three.vercel.app)
+- [Website link](https://brand-website-three.vercel.app/)
