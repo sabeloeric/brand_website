@@ -1,8 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
+import Slider from "react-slick";
+import "../scss/vendor/slick/index.scss"; 
 
 interface CaseStudiesListProps {
   caseStudies: CaseStudy[];
+  caseStudiesToShow?: number;
 }
 
 interface CaseStudy {
@@ -11,10 +14,25 @@ interface CaseStudy {
   description: string;
 }
 
-function CaseStudiesList({ caseStudies }: CaseStudiesListProps) {
+function CaseStudiesList({ caseStudies, caseStudiesToShow }: CaseStudiesListProps) {
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: caseStudiesToShow ?? 3,
+    slidesToScroll: 1,
+    autoPlay: true,
+  };
+
+  // Duplicate the case studies so we can have a continuous loop
+  // Since we only have 3 case studies, and we are showing 3 at a time,
+  // we need to duplicate the case studies so we can have a continuous loop 
+  const doubleCaseStudies = [...caseStudies, ...caseStudies];
+
   return (
     <div className='case-studies'>
-      {caseStudies.map((study, index) => (
+      <Slider {...sliderSettings}>
+      {doubleCaseStudies.map((study, index) => (
         <div key={index} className='case-study'>
           <Image
             fill
@@ -28,6 +46,7 @@ function CaseStudiesList({ caseStudies }: CaseStudiesListProps) {
           </div>
         </div>
       ))}
+      </Slider>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 .case-studies-wrapper {
     margin-top: 50px;
-    margin-bottom: 72px;
+    margin-bottom: 0;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -53,5 +53,39 @@
         font-style: normal;
         font-weight: 400;
         line-height: 24px;
+    }
+}
+
+.slick-track {
+    height: 500px;
+}
+
+.slick-slider {
+    width: 100%;
+    height: 100%;
+}
+
+.slick-slide {
+    height: 400px;
+
+    &:nth-child(even) { 
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.mobile-case-studies {
+    display: none;
+
+    @include media-md {
+        display: block;
+    }
+}
+
+.desktop-case-studies {
+    display: block;
+
+    @include media-md {
+        display: none;
     }
 }

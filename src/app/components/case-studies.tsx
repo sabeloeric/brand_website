@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import SectionTitle from './section-title';
@@ -13,9 +13,7 @@ function CaseStudiesContainer() {
   useEffect(() => {
     setLoading(true);
 
-    fetch(
-      'https://zm6zxgq6hyhe3smi5krzsrk2fu0iidhh.lambda-url.us-east-1.on.aws'
-    )
+    fetch('https://zm6zxgq6hyhe3smi5krzsrk2fu0iidhh.lambda-url.us-east-1.on.aws')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -45,7 +43,12 @@ function CaseStudiesContainer() {
   return (
     <div className='case-studies-wrapper'>
       <SectionTitle title='Case Studies' />
-      <CaseStudiesList caseStudies={caseStudies} />
+      <div className='mobile-case-studies'>
+        <CaseStudiesList caseStudies={caseStudies} caseStudiesToShow={1} />
+      </div>
+      <div className='desktop-case-studies'>
+        <CaseStudiesList caseStudies={caseStudies} />
+      </div>
     </div>
   );
 }
