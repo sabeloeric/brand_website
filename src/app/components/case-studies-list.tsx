@@ -8,12 +8,6 @@ interface CaseStudiesListProps {
   caseStudiesToShow?: number;
 }
 
-interface CaseStudy {
-  imageUrl: string;
-  title: string;
-  description: string;
-}
-
 function CaseStudiesList({ caseStudies, caseStudiesToShow }: CaseStudiesListProps) {
   const sliderSettings = {
     dots: false,

@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import SectionTitle from './section-title';
 import CaseStudiesList from './case-studies-list';
 import '../scss/components/case-studies.scss';
+import { generatedCaseStudies } from '../constants/case-studies';
 
 function CaseStudiesContainer() {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [caseStudies, setCaseStudies] = useState([]);
-
+  const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]); 
+  
   useEffect(() => {
     setLoading(true);
 
@@ -26,29 +26,27 @@ function CaseStudiesContainer() {
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
-        setError(error);
+        setCaseStudies(generatedCaseStudies);
         setLoading(false);
       })
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) {
-    return <div className='case-studies-loader'>Loading...</div>;
-  }
-
-  if (error) {
-    return null;
-  }
-
   return (
     <div className='case-studies-wrapper'>
       <SectionTitle title='Case Studies' />
-      <div className='mobile-case-studies'>
-        <CaseStudiesList caseStudies={caseStudies} caseStudiesToShow={1} />
-      </div>
-      <div className='desktop-case-studies'>
-        <CaseStudiesList caseStudies={caseStudies} />
-      </div>
+      {loading && <div className='case-studies-loader'>Loading...</div>}
+
+      {!loading && (
+        <Fragment>
+          <div className='mobile-case-studies'>
+            <CaseStudiesList caseStudies={caseStudies} caseStudiesToShow={1} />
+          </div>
+          <div className='desktop-case-studies'>
+            <CaseStudiesList caseStudies={caseStudies} />
+          </div>
+        </Fragment>
+      )}
     </div>
   );
 }
