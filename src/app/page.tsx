@@ -4,6 +4,7 @@ import HeroSection from './components/hero-section'
 import WhatWeDo from './components/what-we-do'
 import Brands from './components/brands'
 import Footer from './components/footer'
+import CaseStudiesContainer from './components/case-studies'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Header />
       <HeroSection />
       <WhatWeDo />
+      <CaseStudiesContainer />
       <Brands />
       <Footer />
     </Fragment>
